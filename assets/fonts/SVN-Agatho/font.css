@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'SVN-Agatho';
+    src: url('SVN-Agatho-Light.eot');
+    src: url('SVN-Agatho-Light.eot?#iefix') format('embedded-opentype'),
+        url('SVN-Agatho-Light.woff2') format('woff2'),
+        url('SVN-Agatho-Light.woff') format('woff'),
+        url('SVN-Agatho-Light.ttf') format('truetype'),
+        url('SVN-Agatho-Light.svg#SVN-Agatho-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+

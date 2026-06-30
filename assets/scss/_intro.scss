@@ -1,0 +1,16 @@
+.intro {
+  padding: 120px 0;
+  &-content {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    gap: 24px;
+    margin-bottom: 120px;
+  }
+  &-right {
+    margin-top: 96px;
+  }
+  &-image {
+    width: 100%;
+    aspect-ratio: 1062 / 540;
+  }
+}

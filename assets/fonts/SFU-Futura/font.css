@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'SFU Futura';
+    src: url('SFUFutura.eot');
+    src: url('SFUFutura.eot?#iefix') format('embedded-opentype'),
+        url('SFUFutura.woff2') format('woff2'),
+        url('SFUFutura.woff') format('woff'),
+        url('SFUFutura.ttf') format('truetype'),
+        url('SFUFutura.svg#SFUFutura') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFU Futura';
+    src: url('SFUFuturaOblique.eot');
+    src: url('SFUFuturaOblique.eot?#iefix') format('embedded-opentype'),
+        url('SFUFuturaOblique.woff2') format('woff2'),
+        url('SFUFuturaOblique.woff') format('woff'),
+        url('SFUFuturaOblique.ttf') format('truetype'),
+        url('SFUFuturaOblique.svg#SFUFuturaOblique') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFU Futura';
+    src: url('SFUFuturaHeavy.eot');
+    src: url('SFUFuturaHeavy.eot?#iefix') format('embedded-opentype'),
+        url('SFUFuturaHeavy.woff2') format('woff2'),
+        url('SFUFuturaHeavy.woff') format('woff'),
+        url('SFUFuturaHeavy.ttf') format('truetype'),
+        url('SFUFuturaHeavy.svg#SFUFuturaHeavy') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SFU Futura';
+    src: url('SFUFuturaBook.eot');
+    src: url('SFUFuturaBook.eot?#iefix') format('embedded-opentype'),
+        url('SFUFuturaBook.woff2') format('woff2'),
+        url('SFUFuturaBook.woff') format('woff'),
+        url('SFUFuturaBook.ttf') format('truetype'),
+        url('SFUFuturaBook.svg#SFUFuturaBook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
