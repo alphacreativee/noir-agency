@@ -951,6 +951,10 @@ body {
   background-color: var(--color-white);
 }
 
+.spacing-lg-120 {
+  height: 120px;
+}
+
 .lightpick {
   --color-stroke: #ccc;
   --color-bg: #fff;
@@ -1110,9 +1114,6 @@ body {
   margin-top: 20px;
 }
 
-.intro {
-  padding: 120px 0;
-}
 .intro-content {
   display: grid;
   grid-template-columns: 4fr 6fr;

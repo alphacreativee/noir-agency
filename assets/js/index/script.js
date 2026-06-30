@@ -15,6 +15,10 @@ function initParallaxSwiper(swiperEl, options = {}) {
     slidesPerView: 1,
     loop: true,
     speed: 1500,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
     watchSlidesProgress: true,
     grabCursor: true,
     ...options,
