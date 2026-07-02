@@ -1020,6 +1020,20 @@ body {
 #header {
   z-index: 999;
 }
+#header .header-menu {
+  position: relative;
+}
+#header .header-menu::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  max-width: calc(100% - 40px);
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-white);
+}
 #header .header-menu ul {
   display: flex;
   align-items: center;
@@ -1084,7 +1098,7 @@ body {
   gap: 20px;
 }
 #header .header-top {
-  padding: 40px 0 20px;
+  padding: 24px 0;
 }
 #header .header-line {
   max-width: calc(100% - 40px);
