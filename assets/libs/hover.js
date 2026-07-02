@@ -16,6 +16,7 @@ var hoverEffect = function (opts) {
 
         uniform float dispFactor;
         uniform float effectFactor;
+        uniform float angle;
 
         uniform vec2 repeat1;
         uniform vec2 offset1;
@@ -31,8 +32,11 @@ var hoverEffect = function (opts) {
             vec2 uvDisp = uv * repeatDisp + offsetDisp;
             vec4 disp = texture2D(disp, uvDisp);
 
-            vec2 distortedPosition = vec2(uv.x + dispFactor * (disp.r*effectFactor), uv.y);
-            vec2 distortedPosition2 = vec2(uv.x - (1.0 - dispFactor) * (disp.r*effectFactor), uv.y);
+            // hướng dịch chuyển dựa theo angle (radian)
+            vec2 dir = vec2(cos(angle), sin(angle));
+
+            vec2 distortedPosition = uv + dispFactor * dir * (disp.r * effectFactor);
+            vec2 distortedPosition2 = uv - (1.0 - dispFactor) * dir * (disp.r * effectFactor);
 
             vec2 uv1 = distortedPosition * repeat1 + offset1;
             vec2 uv2 = distortedPosition2 * repeat2 + offset2;
@@ -51,9 +55,23 @@ var hoverEffect = function (opts) {
     opts.displacementImage || console.warn("displacement image missing");
   var image1 = opts.image1 || console.warn("first image missing");
   var image2 = opts.image2 || console.warn("second image missing");
-  var intensity = opts.intensity || 1;
-  var speedIn = opts.speedIn || 1.6;
-  var speedOut = opts.speedOut || 1.2;
+
+  // ép kiểu số an toàn: nếu opts.intensity là string (vd từ getAttribute) vẫn parse đúng
+  // đồng thời giới hạn (cap) khoảng dịch chuyển tối đa để hiệu ứng luôn "nhẹ"
+  var maxDisplacement =
+    opts.maxDisplacement !== undefined
+      ? parseFloat(opts.maxDisplacement)
+      : 0.01; // ~2% chiều rộng ảnh, chỉnh số này để nới/siết chung toàn site
+
+  var intensity = parseFloat(opts.intensity);
+  if (isNaN(intensity)) intensity = 1;
+  intensity = Math.min(intensity, maxDisplacement);
+
+  var angle = parseFloat(opts.angle);
+  if (isNaN(angle)) angle = 0;
+
+  var speedIn = opts.speedIn || 2.2;
+  var speedOut = opts.speedOut || 1.8;
   var userHover = opts.hover === undefined ? true : opts.hover;
   var easing = opts.easing || Expo.easeOut;
 
@@ -124,6 +142,7 @@ var hoverEffect = function (opts) {
   var mat = new THREE.ShaderMaterial({
     uniforms: {
       effectFactor: { type: "f", value: intensity },
+      angle: { type: "f", value: angle },
       dispFactor: { type: "f", value: 0.0 },
       texture: { type: "t", value: null },
       texture2: { type: "t", value: null },

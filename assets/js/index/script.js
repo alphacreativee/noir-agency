@@ -105,8 +105,8 @@ window.addEventListener("beforeunload", () => {
 document.querySelectorAll(".distortion-img").forEach((wrapper) => {
   new hoverEffect({
     parent: wrapper,
-    intensity: wrapper.getAttribute("data-intensity"),
-    angle: Math.PI / 2,
+    intensity: parseFloat(wrapper.getAttribute("data-intensity")) || 0.03,
+    angle: Math.PI / 4,
     image1: wrapper.getAttribute("data-image-default"),
     image2: wrapper.getAttribute("data-image-hover"),
     displacementImage: wrapper.getAttribute("data-displacement"),
