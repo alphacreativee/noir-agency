@@ -78,7 +78,7 @@ export function headerScroll() {
   const header = document.getElementById("header");
   if (!header) return null;
 
-  let lastScroll = 0;
+  const THRESHOLD = 10; // px, gần đầu trang thì remove luôn
 
   const trigger = ScrollTrigger.create({
     start: "top top",
@@ -86,17 +86,12 @@ export function headerScroll() {
     onUpdate: (self) => {
       const currentScroll = self.scroll();
 
-      if (currentScroll <= 0) {
+      if (currentScroll <= THRESHOLD) {
         header.classList.remove("scrolled");
-      } else if (currentScroll > lastScroll) {
-        // Scroll down
+      } else if (self.direction === 1) {
+        // scrolling down
         header.classList.add("scrolled");
-      } else {
-        // Scroll up
-        header.classList.remove("scrolled");
       }
-
-      lastScroll = currentScroll;
     },
   });
 

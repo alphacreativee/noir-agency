@@ -1,5 +1,9 @@
 "use strict";
-import { customDropdown, createFilterTab } from "../../main/js/global.min.js";
+import {
+  customDropdown,
+  createFilterTab,
+  headerScroll,
+} from "../../main/js/global.min.js";
 
 const $ = jQuery;
 
@@ -78,6 +82,7 @@ function init() {
   gsap.registerPlugin(ScrollTrigger);
   customDropdown();
   createFilterTab();
+  headerScroll();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
