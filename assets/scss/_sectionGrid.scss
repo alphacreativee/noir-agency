@@ -1,9 +1,5 @@
 .section-grid__column {
-  padding: 96px 0 120px;
-
-  &-inner {
-    max-width: 1060px;
-  }
+  padding: 120px 0;
 
   &-title {
     margin-bottom: 48px;
@@ -19,7 +15,9 @@
   &-card {
     display: block;
     position: relative;
-    min-height: 320px;
+    width: 100%;
+    aspect-ratio: 510 / 410;
+    max-height: 410px;
     overflow: hidden;
     background-color: var(--color-black-op);
 
@@ -69,6 +67,40 @@
     line-height: 26px;
     font-weight: 400;
   }
+
+  &-tag {
+    position: absolute;
+    left: 50%;
+    top: 61%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  &--branding {
+    padding: 120px 0 160px;
+
+    .section-grid__column {
+      &-title {
+        margin-bottom: 56px;
+      }
+
+      &-card {
+        min-height: 410px;
+      }
+    }
+  }
+
+  &--execution {
+    .section-grid__column {
+      &-title {
+        text-align: center;
+      }
+    }
+  }
 }
 
 @media (max-width: 991px) {
@@ -95,6 +127,28 @@
       left: 16px;
       right: 16px;
       bottom: 16px;
+    }
+
+    &-tag {
+      top: 58%;
+    }
+
+    &--branding {
+      padding: 72px 0 96px;
+
+      .section-grid__column {
+        &-title {
+          margin-bottom: 32px;
+        }
+
+        &-card {
+          min-height: 260px;
+        }
+      }
+    }
+
+    &--execution {
+      padding-top: 72px;
     }
   }
 }
