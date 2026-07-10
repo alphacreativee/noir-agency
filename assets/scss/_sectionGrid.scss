@@ -1,9 +1,5 @@
 .section-grid__column {
-  padding: 96px 0 120px;
-
-  &-inner {
-    max-width: 1060px;
-  }
+  padding: 120px 0;
 
   &-title {
     margin-bottom: 48px;
@@ -97,6 +93,14 @@
       }
     }
   }
+
+  &--execution {
+    .section-grid__column {
+      &-title {
+        text-align: center;
+      }
+    }
+  }
 }
 
 @media (max-width: 991px) {
@@ -141,6 +145,10 @@
           min-height: 260px;
         }
       }
+    }
+
+    &--execution {
+      padding-top: 72px;
     }
   }
 }

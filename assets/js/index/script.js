@@ -66,7 +66,7 @@ function initSwiper() {
   const swiperEl = containerSwiperEl.querySelector(".swiper-el-parallax");
   if (!swiperEl) return;
 
-  const swiperParallax = initParallaxSwiper(swiperEl, {
+  initParallaxSwiper(swiperEl, {
     navigation: {
       nextEl: containerSwiperEl.querySelector(".swiper-button-next"),
       prevEl: containerSwiperEl.querySelector(".swiper-button-prev"),
@@ -74,6 +74,27 @@ function initSwiper() {
     pagination: {
       el: containerSwiperEl.querySelector(".swiper-pagination"),
       clickable: true,
+    },
+  });
+}
+
+function brandingDetail() {
+  const brandingDetailSliderEl = document.querySelector(
+    ".branding-detail__slider",
+  );
+  if (!brandingDetailSliderEl) return;
+
+  new Swiper(brandingDetailSliderEl, {
+    slidesPerView: "auto",
+    spaceBetween: 24,
+    centeredSlides: true,
+    loop: true,
+    speed: 800,
+    grabCursor: true,
+    breakpoints: {
+      992: {
+        spaceBetween: 40,
+      },
     },
   });
 }
@@ -215,6 +236,7 @@ function init() {
 document.addEventListener("DOMContentLoaded", () => {
   init();
   initSwiper();
+  brandingDetail();
 });
 
 let isLinkClicked = false;
