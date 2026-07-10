@@ -1188,28 +1188,29 @@ body {
   padding-left: 8.3333333333%;
 }
 
-.section-about-team {
+.section-grid__column {
   padding: 96px 0 120px;
 }
-.section-about-team .about-team-inner {
+.section-grid__column-inner {
   max-width: 1060px;
 }
-.section-about-team .about-team-title {
+.section-grid__column-title {
   margin-bottom: 48px;
   text-transform: none;
 }
-.section-about-team .about-team-grid {
+.section-grid__column-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 40px;
 }
-.section-about-team .about-team-card {
+.section-grid__column-card {
+  display: block;
   position: relative;
   min-height: 320px;
   overflow: hidden;
   background-color: var(--color-black-op);
 }
-.section-about-team .about-team-card::before {
+.section-grid__column-card::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -1217,18 +1218,18 @@ body {
   background-color: #000;
   opacity: 0.1;
 }
-.section-about-team .about-team-image {
+.section-grid__column-image {
   width: 100%;
   height: 100%;
   position: absolute;
   inset: 0;
 }
-.section-about-team .about-team-image img {
+.section-grid__column-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.section-about-team .about-team-content {
+.section-grid__column-content {
   position: absolute;
   left: 22px;
   right: 22px;
@@ -1236,18 +1237,94 @@ body {
   z-index: 2;
   text-align: center;
 }
-.section-about-team .about-team-name {
+.section-grid__column-name {
   margin-bottom: 6px;
   font-family: var(--font-heading);
   font-size: 28px;
   line-height: 32px;
   font-weight: 300;
 }
-.section-about-team .about-team-position {
+.section-grid__column-position {
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 26px;
   font-weight: 400;
+}
+
+@media (max-width: 991px) {
+  .section-grid__column {
+    padding: 64px 0 72px;
+  }
+  .section-grid__column-inner {
+    max-width: 100%;
+  }
+  .section-grid__column-title {
+    margin-bottom: 28px;
+  }
+  .section-grid__column-grid {
+    gap: 16px;
+  }
+  .section-grid__column-card {
+    min-height: 220px;
+  }
+  .section-grid__column-content {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+}
+.about-detail {
+  padding: 140px 0;
+}
+.about-detail .title {
+  margin-bottom: 24px;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 300;
+}
+@media (max-width: 991px) {
+  .about-detail__container {
+    padding: 0 24px;
+  }
+}
+.about-detail .the-content > * + * {
+  margin-top: 16px;
+}
+.about-detail .the-content li {
+  margin-top: 0 !important;
+}
+.about-detail .the-content p,
+.about-detail .the-content li {
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+}
+.about-detail .the-content a {
+  display: inline-block;
+  position: relative;
+}
+.about-detail .the-content a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-white);
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.about-detail .the-content a:hover::before, .about-detail .the-content a.active::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.about-detail .the-content ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+.about-detail .the-content li + li {
+  margin-top: 24px;
 }
 
 .section-contact-placeholder {
@@ -1255,28 +1332,6 @@ body {
   background-color: var(--color-black-op);
 }
 
-@media (max-width: 991px) {
-  .section-about-team {
-    padding: 64px 0 72px;
-  }
-  .section-about-team .about-team-inner {
-    max-width: 100%;
-  }
-  .section-about-team .about-team-title {
-    margin-bottom: 28px;
-  }
-  .section-about-team .about-team-grid {
-    gap: 16px;
-  }
-  .section-about-team .about-team-card {
-    min-height: 220px;
-  }
-  .section-about-team .about-team-content {
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
-  }
-}
 @media (min-width: 992px) {
   .section-service .service-box {
     display: grid;
