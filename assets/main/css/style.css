@@ -1439,3 +1439,37 @@ body {
 .why-noir-description {
   max-width: 800px;
 }
+
+#footer {
+  background-color: var(--color-black-op);
+}
+#footer .footer-form .form-row {
+  margin-bottom: 24px;
+}
+#footer .footer-form .form-row.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 24px;
+}
+#footer .footer-form .form-row input {
+  border: none;
+}
+#footer .footer-form .form-input {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-white);
+  height: 60px;
+}
+#footer .footer-form .form-input input,
+#footer .footer-form .form-input textarea {
+  width: 100%;
+  height: 100%;
+  padding: 0 24px;
+}
+#footer .footer-form .form-input label {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
