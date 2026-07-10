@@ -1,0 +1,47 @@
+.featured {
+  &-list {
+    .marquee {
+      &-wrap {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 45px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      &-scroll {
+        display: flex;
+        position: relative;
+        will-change: transform;
+      }
+      &-list {
+        will-change: transform;
+        &-wrap {
+          flex: none;
+        }
+      }
+      &-item {
+        margin: 0 15px;
+        flex: none;
+        max-width: 170px;
+        .logo-icon {
+          width: 100%;
+          aspect-ratio: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            width: auto;
+            height: auto;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  &-top {
+    margin-bottom: 120px;
+  }
+}
