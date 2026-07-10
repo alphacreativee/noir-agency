@@ -4,7 +4,21 @@
     &-form {
       .form-row {
         margin-bottom: 24px;
-
+        &.full-col {
+          .form-input {
+            height: auto;
+            textarea {
+              resize: none;
+              border: none;
+              height: 100%;
+              display: block;
+              box-sizing: border-box;
+            }
+            label {
+              top: 24px;
+            }
+          }
+        }
         &.two-col {
           display: grid;
           grid-template-columns: 1fr 1fr;
