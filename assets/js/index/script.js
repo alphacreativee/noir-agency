@@ -121,14 +121,26 @@ function sectionProcess() {
   });
 
   if (lineEl) {
-    gsap.to(lineEl, {
-      scaleY: 1,
-      ease: "none",
-      scrollTrigger: {
-        trigger: sectionProcessEl.querySelector(".section-process__timeline"),
-        start: "top 70%",
-        end: "bottom 65%",
-        scrub: true
+    let isLineComplete = false;
+
+    ScrollTrigger.create({
+      trigger: sectionProcessEl.querySelector(".section-process__timeline"),
+      start: "top 70%",
+      end: "bottom 65%",
+      scrub: true,
+      onUpdate(self) {
+        if (isLineComplete) return;
+
+        gsap.set(lineEl, { scaleY: self.progress });
+
+        if (self.progress >= 1) {
+          isLineComplete = true;
+          gsap.set(lineEl, { scaleY: 1 });
+        }
+      },
+      onLeave() {
+        isLineComplete = true;
+        gsap.set(lineEl, { scaleY: 1 });
       }
     });
   }
