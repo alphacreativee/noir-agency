@@ -1,226 +1,205 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Branding</title>
-    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon" />
-    <meta property="og:url" content="" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:image" content="" />
-    <link rel="stylesheet" href="./assets/libs/bootstrap.min.css" />
-    <link rel="stylesheet" href="./assets/libs/lenis.css" />
-    <link rel="stylesheet" href="./assets/libs/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./assets/libs/lightpick.min.css" />
-    <link rel="stylesheet" href="./assets/fonts/SVN-Agatho/font.css" />
-    <link rel="stylesheet" href="./assets/fonts/SFU-Futura/font.css" />
-    <link rel="stylesheet" href="./assets/main/css/style.min.css" />
-    <script>
-      if ("scrollRestoration" in history) {
-        history.scrollRestoration = "manual";
-      }
-    </script>
-  </head>
 
-  <body class="page-branding">
-    <script>
-      fetch("./components/header.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("header").innerHTML = data;
-          const currentPath = window.location.pathname || "/";
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Branding</title>
+  <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+  <meta property="og:url" content="" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="" />
+  <link rel="stylesheet" href="./assets/libs/bootstrap.min.css" />
+  <link rel="stylesheet" href="./assets/libs/lenis.css" />
+  <link rel="stylesheet" href="./assets/libs/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./assets/libs/lightpick.min.css" />
+  <link rel="stylesheet" href="./assets/fonts/SVN-Agatho/font.css" />
+  <link rel="stylesheet" href="./assets/fonts/SFU-Futura/font.css" />
+  <link rel="stylesheet" href="./assets/main/css/style.min.css" />
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+  </script>
+</head>
 
-          const navLinks = document.querySelectorAll(".header-menu ul>li>a");
-          navLinks.forEach((link) => {
-            const linkPath = link.getAttribute("href");
+<body class="page-branding">
+  <script>
+    fetch("./components/header.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("header").innerHTML = data;
+        const currentPath = window.location.pathname || "/";
 
-            let normalizedCurrentPath = currentPath;
-            let normalizedLinkPath = linkPath;
+        const navLinks = document.querySelectorAll(".header-menu ul>li>a");
+        navLinks.forEach((link) => {
+          const linkPath = link.getAttribute("href");
 
-            if (normalizedLinkPath.startsWith("./")) {
-              normalizedLinkPath = normalizedLinkPath.substring(1);
-            }
+          let normalizedCurrentPath = currentPath;
+          let normalizedLinkPath = linkPath;
 
-            const currentSegment = normalizedCurrentPath.split("/").pop() || "";
-            const linkSegment = normalizedLinkPath.split("/").pop() || "";
+          if (normalizedLinkPath.startsWith("./")) {
+            normalizedLinkPath = normalizedLinkPath.substring(1);
+          }
 
-            const isRootPath =
-              currentPath === "/" ||
-              currentPath.endsWith("/") ||
-              currentSegment === "";
+          const currentSegment = normalizedCurrentPath.split("/").pop() || "";
+          const linkSegment = normalizedLinkPath.split("/").pop() || "";
 
-            const isHomeLink =
-              linkPath === "/" ||
-              linkPath === "./" ||
-              linkPath === "./index.html" ||
-              linkPath === "index.html" ||
-              linkSegment === "index.html";
+          const isRootPath =
+            currentPath === "/" ||
+            currentPath.endsWith("/") ||
+            currentSegment === "";
 
-            const isMatch =
-              normalizedLinkPath === normalizedCurrentPath ||
-              currentSegment === linkSegment ||
-              (isRootPath && isHomeLink) ||
-              (currentPath.endsWith(normalizedLinkPath) &&
-                normalizedLinkPath !== "/");
+          const isHomeLink =
+            linkPath === "/" ||
+            linkPath === "./" ||
+            linkPath === "./index.html" ||
+            linkPath === "index.html" ||
+            linkSegment === "index.html";
 
-            if (isMatch) {
-              link.classList.add("active");
-            }
-          });
+          const isMatch =
+            normalizedLinkPath === normalizedCurrentPath ||
+            currentSegment === linkSegment ||
+            (isRootPath && isHomeLink) ||
+            (currentPath.endsWith(normalizedLinkPath) &&
+              normalizedLinkPath !== "/");
+
+          if (isMatch) {
+            link.classList.add("active");
+          }
         });
-    </script>
-    <header
-      id="header"
-      class="header position-fixed start-50 translate-middle-x"
-    ></header>
+      });
+  </script>
+  <header id="header"
+    class="header position-fixed  top-0 start-0 end-0 w-100 d-flex align-items-center justify-content-center"></header>
 
-    <main>
-      <section class="hero">
-        <div class="hero-inner">
-          <div
-            class="distortion-img"
-            data-image-default="./assets/images/del/image-1.jpg"
-            data-image-hover="./assets/images/del/image-2.jpg"
-            data-displacement="./assets/images/displacement/displacement-1.jpg"
-            data-intensity="0.03"
-          >
-            <img src="./assets/images/del/image-1.jpg" alt="" />
-          </div>
-          <div class="hero-content">
-            <h1 class="heading-2 font-heading color-white">Branding</h1>
-            <p class="b1-font font-body color-white">Identity That Sells</p>
-          </div>
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="distortion-img" data-image-default="./assets/images/del/image-1.jpg"
+          data-image-hover="./assets/images/del/image-2.jpg"
+          data-displacement="./assets/images/displacement/displacement-1.jpg" data-intensity="0.03">
+          <img src="./assets/images/del/image-1.jpg" alt="" />
         </div>
-      </section>
-
-      <section class="section-grid__column section-grid__column--branding">
-        <div class="section-grid__column-inner limit-8-col">
-          <h2
-            class="section-grid__column-title heading-1 font-heading color-white"
-          >
-            Branding
-          </h2>
-          <div class="section-grid__column-grid">
-            <a href="./branding-detail.html" class="section-grid__column-card">
-              <div class="section-grid__column-image">
-                <img
-                  src="./assets/images/del/image-empty.jpg"
-                  alt="Taco Del Sol"
-                />
-              </div>
-              <div class="section-grid__column-content">
-                <h3 class="section-grid__column-name font-heading color-white">
-                  Taco Del Sol
-                </h3>
-                <p class="section-grid__column-position font-body color-white">
-                  Mexican Restaurant
-                </p>
-              </div>
-            </a>
-            <a href="./branding-detail.html" class="section-grid__column-card">
-              <div class="section-grid__column-image">
-                <img
-                  src="./assets/images/del/image-empty.jpg"
-                  alt="Sol Kitchen & Bar"
-                />
-              </div>
-              <div class="section-grid__column-content">
-                <h3 class="section-grid__column-name font-heading color-white">
-                  Sol Kitchen &amp; Bar
-                </h3>
-                <p class="section-grid__column-position font-body color-white">
-                  Latin &amp; American Restaurant
-                </p>
-              </div>
-            </a>
-            <a href="./branding-detail.html" class="section-grid__column-card">
-              <div class="section-grid__column-image">
-                <img
-                  src="./assets/images/del/image-empty.jpg"
-                  alt="Cee's Eatery"
-                />
-              </div>
-              <div class="section-grid__column-content">
-                <h3 class="section-grid__column-name font-heading color-white">
-                  Cee's Eatery
-                </h3>
-                <p class="section-grid__column-position font-body color-white">
-                  Bistro Restaurant
-                </p>
-              </div>
-            </a>
-            <a href="./branding-detail.html" class="section-grid__column-card">
-              <div class="section-grid__column-image">
-                <img
-                  src="./assets/images/del/image-empty.jpg"
-                  alt="Bunz Smash Burger"
-                />
-              </div>
-              <div class="section-grid__column-content">
-                <h3 class="section-grid__column-name font-heading color-white">
-                  Bunz Smash Burger
-                </h3>
-                <p class="section-grid__column-position font-body color-white">
-                  Fast Food Restaurant
-                </p>
-              </div>
-            </a>
-            <a href="./branding-detail.html" class="section-grid__column-card">
-              <div class="section-grid__column-image">
-                <img
-                  src="./assets/images/del/image-empty.jpg"
-                  alt="Nene's Kitchen"
-                />
-              </div>
-              <div class="section-grid__column-content">
-                <h3 class="section-grid__column-name font-heading color-white">
-                  Nene's Kitchen
-                </h3>
-                <p class="section-grid__column-position font-body color-white">
-                  Malaysian Restaurant
-                </p>
-              </div>
-            </a>
-            <a href="./branding-detail.html" class="section-grid__column-card">
-              <div class="section-grid__column-image">
-                <img src="./assets/images/del/image-empty.jpg" alt="CheLy" />
-              </div>
-              <div class="section-grid__column-content">
-                <h3 class="section-grid__column-name font-heading color-white">
-                  CheLy
-                </h3>
-                <p class="section-grid__column-position font-body color-white">
-                  Vietnamese Dessert Bar
-                </p>
-              </div>
-            </a>
-          </div>
+        <div class="hero-content">
+          <h1 class="heading-2 font-heading color-white">Branding</h1>
+          <p class="b1-font font-body color-white">Identity That Sells</p>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
-    <script>
-      fetch("./components/footer.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("footer").innerHTML = data;
-        });
-    </script>
-    <footer id="footer"></footer>
+    <section class="section-grid__column section-grid__column--branding">
+      <div class="section-grid__column-inner limit-8-col">
+        <h2 class="section-grid__column-title heading-1 font-heading color-white">
+          Branding
+        </h2>
+        <div class="section-grid__column-grid">
+          <a href="./branding-detail.html" class="section-grid__column-card">
+            <div class="section-grid__column-image">
+              <img src="./assets/images/del/image-empty.jpg" alt="Taco Del Sol" />
+            </div>
+            <div class="section-grid__column-content">
+              <h3 class="section-grid__column-name font-heading color-white">
+                Taco Del Sol
+              </h3>
+              <p class="section-grid__column-position font-body color-white">
+                Mexican Restaurant
+              </p>
+            </div>
+          </a>
+          <a href="./branding-detail.html" class="section-grid__column-card">
+            <div class="section-grid__column-image">
+              <img src="./assets/images/del/image-empty.jpg" alt="Sol Kitchen & Bar" />
+            </div>
+            <div class="section-grid__column-content">
+              <h3 class="section-grid__column-name font-heading color-white">
+                Sol Kitchen &amp; Bar
+              </h3>
+              <p class="section-grid__column-position font-body color-white">
+                Latin &amp; American Restaurant
+              </p>
+            </div>
+          </a>
+          <a href="./branding-detail.html" class="section-grid__column-card">
+            <div class="section-grid__column-image">
+              <img src="./assets/images/del/image-empty.jpg" alt="Cee's Eatery" />
+            </div>
+            <div class="section-grid__column-content">
+              <h3 class="section-grid__column-name font-heading color-white">
+                Cee's Eatery
+              </h3>
+              <p class="section-grid__column-position font-body color-white">
+                Bistro Restaurant
+              </p>
+            </div>
+          </a>
+          <a href="./branding-detail.html" class="section-grid__column-card">
+            <div class="section-grid__column-image">
+              <img src="./assets/images/del/image-empty.jpg" alt="Bunz Smash Burger" />
+            </div>
+            <div class="section-grid__column-content">
+              <h3 class="section-grid__column-name font-heading color-white">
+                Bunz Smash Burger
+              </h3>
+              <p class="section-grid__column-position font-body color-white">
+                Fast Food Restaurant
+              </p>
+            </div>
+          </a>
+          <a href="./branding-detail.html" class="section-grid__column-card">
+            <div class="section-grid__column-image">
+              <img src="./assets/images/del/image-empty.jpg" alt="Nene's Kitchen" />
+            </div>
+            <div class="section-grid__column-content">
+              <h3 class="section-grid__column-name font-heading color-white">
+                Nene's Kitchen
+              </h3>
+              <p class="section-grid__column-position font-body color-white">
+                Malaysian Restaurant
+              </p>
+            </div>
+          </a>
+          <a href="./branding-detail.html" class="section-grid__column-card">
+            <div class="section-grid__column-image">
+              <img src="./assets/images/del/image-empty.jpg" alt="CheLy" />
+            </div>
+            <div class="section-grid__column-content">
+              <h3 class="section-grid__column-name font-heading color-white">
+                CheLy
+              </h3>
+              <p class="section-grid__column-position font-body color-white">
+                Vietnamese Dessert Bar
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <script src="./assets/libs/jquery-3.7.1.js"></script>
-    <script src="./assets/libs/lenis.min.js"></script>
-    <script src="./assets/libs/gsap.min.js"></script>
-    <script src="./assets/libs/ScrollTrigger.min.js"></script>
-    <script src="./assets/libs/SplitText.min.js"></script>
-    <script src="./assets/libs/bootstrap.bundle.min.js"></script>
-    <script src="./assets/libs/swiper-bundle.min.js"></script>
-    <script src="./assets/libs/moment.min.js"></script>
-    <script src="./assets/libs/lightpick.min.js"></script>
-    <script src="./assets/libs/three.js"></script>
-    <script src="./assets/libs/hover.js"></script>
-    <script type="module" src="./assets/main/js/script.min.js"></script>
-  </body>
+  <script>
+    fetch("./components/footer.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+  <footer id="footer"></footer>
+
+  <script src="./assets/libs/jquery-3.7.1.js"></script>
+  <script src="./assets/libs/lenis.min.js"></script>
+  <script src="./assets/libs/gsap.min.js"></script>
+  <script src="./assets/libs/ScrollTrigger.min.js"></script>
+  <script src="./assets/libs/SplitText.min.js"></script>
+  <script src="./assets/libs/bootstrap.bundle.min.js"></script>
+  <script src="./assets/libs/swiper-bundle.min.js"></script>
+  <script src="./assets/libs/moment.min.js"></script>
+  <script src="./assets/libs/lightpick.min.js"></script>
+  <script src="./assets/libs/three.js"></script>
+  <script src="./assets/libs/hover.js"></script>
+  <script type="module" src="./assets/main/js/script.min.js"></script>
+</body>
+
 </html>
