@@ -1,3 +1,4 @@
+<div class="footer-ovl" aria-hidden="true"></div>
 <div class="footer-container py-80 px-80 limit-10-col">
   <div class="footer-inner">
     <h3
@@ -6,40 +7,44 @@
       Contact
     </h3>
     <div class="footer-form">
-      <form action="">
+      <form action="" class="contact-form">
         <div class="form-row two-col">
           <div class="form-input">
             <input
               type="text"
-              class="b1-font color-black font-body"
+              name="name"
+              class="b1-font color-black font-body required"
               placeholder=" "
             />
-            <label class="label b1-font color-black font-body">Name*</label>
+            <label class="label b1-font color-black font-body">Name<span>*</span></label>
           </div>
           <div class="form-input">
             <input
-              type="tell"
-              class="b1-font color-black font-body"
+              type="tel"
+              name="phone"
+              class="b1-font color-black font-body required"
               placeholder=" "
             />
-            <label class="label b1-font color-black font-body">Phone*</label>
+            <label class="label b1-font color-black font-body">Phone<span>*</span></label>
           </div>
         </div>
         <div class="form-row two-col">
           <div class="form-input">
             <input
               type="email"
-              class="b1-font color-black font-body"
+              name="email"
+              class="b1-font color-black font-body required"
               placeholder=" "
             />
-            <label class="label b1-font color-black font-body">Email*</label>
+            <label class="label b1-font color-black font-body">Email<span>*</span></label>
           </div>
 
           <div class="form-input">
             <div class="dropdown-custom-select">
+              <input type="hidden" name="service" class="required" value="" />
               <div class="dropdown-custom-btn">
                 <div class="value-select dropdown-custom-text">
-                  <span>Service*</span>
+                  <span>Service<span>*</span></span>
                 </div>
                 <div class="icon">
                   <svg
@@ -71,32 +76,36 @@
           <div class="form-input">
             <input
               type="text"
-              class="b1-font color-black font-body"
+              name="timeline"
+              class="b1-font color-black font-body required"
               placeholder=" "
             />
-            <label class="label b1-font color-black font-body">Timeline*</label>
+            <label class="label b1-font color-black font-body">Timeline<span>*</span></label>
           </div>
           <div class="form-input">
             <input
               type="text"
-              class="b1-font color-black font-body"
+              name="budget"
+              class="b1-font color-black font-body required"
               placeholder=" "
             />
-            <label class="label b1-font color-black font-body">Budget*</label>
+            <label class="label b1-font color-black font-body">Budget<span>*</span></label>
           </div>
         </div>
         <div class="form-row full-col">
           <div class="form-input">
             <textarea
-              class="b1-font color-black font-body"
+              name="message"
+              class="b1-font color-black font-body required"
               placeholder=" "
               rows="5"
             ></textarea>
-            <label class="label b1-font color-black font-body">Message*</label>
+            <label class="label b1-font color-black font-body">Message<span>*</span></label>
           </div>
         </div>
+        <div class="form-message" style="display: none">Register successful!!</div>
         <div class="form-row d-flex justify-content-center mt-48 mb-0">
-          <button class="global-button bgc-transparent">
+          <button type="submit" class="global-button bgc-transparent">
             Let’s build your brand
           </button>
         </div>

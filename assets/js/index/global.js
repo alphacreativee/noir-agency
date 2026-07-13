@@ -1,6 +1,6 @@
 export function customDropdown() {
   const dropdowns = document.querySelectorAll(
-    ".dropdown-custom, .dropdown-custom-select",
+    ".dropdown-custom, .dropdown-custom-select"
   );
   if (!dropdowns.length) return;
   dropdowns.forEach((dropdown) => {
@@ -29,7 +29,9 @@ export function customDropdown() {
 
         if (isSelectType) {
           const optionText = item.textContent;
+          const input = dropdown.querySelector("input[type='hidden']");
           displayText.textContent = optionText;
+          if (input) input.value = optionText.trim();
           dropdown.classList.add("selected");
         } else {
           const currentImgEl = valueSelect.querySelector("img");
@@ -92,7 +94,7 @@ export function headerScroll() {
         // scrolling down
         header.classList.add("scrolled");
       }
-    },
+    }
   });
 
   return trigger;
@@ -167,7 +169,109 @@ export function getDateLightPick() {
     field: document.getElementById("datepicker"),
     minDate: new Date(),
     singleDate: false,
-    numberOfMonths: 2,
+    numberOfMonths: 2
     // lang: "en-US",
+  });
+}
+
+export function footerOverlayHeight() {
+  const footer = document.getElementById("footer");
+  if (!footer) return;
+
+  const updateFooterHeight = () => {
+    const footerContainer = footer.querySelector(".footer-container");
+    const footerOverlay = footer.querySelector(".footer-ovl");
+    if (!footerContainer || !footerOverlay) return;
+
+    footerOverlay.style.height = `${footerContainer.offsetHeight}px`;
+  };
+
+  updateFooterHeight();
+
+  const resizeObserver = new ResizeObserver(updateFooterHeight);
+  const mutationObserver = new MutationObserver(() => {
+    updateFooterHeight();
+
+    const footerContainer = footer.querySelector(".footer-container");
+    if (footerContainer && !footerContainer.dataset.footerResizeObserved) {
+      footerContainer.dataset.footerResizeObserved = "true";
+      resizeObserver.observe(footerContainer);
+    }
+  });
+
+  const footerContainer = footer.querySelector(".footer-container");
+  if (footerContainer) {
+    footerContainer.dataset.footerResizeObserved = "true";
+    resizeObserver.observe(footerContainer);
+  }
+
+  mutationObserver.observe(footer, { childList: true, subtree: true });
+  window.addEventListener("resize", updateFooterHeight);
+  window.addEventListener("load", updateFooterHeight);
+}
+
+export function formContact() {
+  const $ = window.jQuery;
+  if (!$ || $("html").data("formContactInitialized")) return;
+
+  $("html").data("formContactInitialized", true);
+
+  $(document).on("click", ".contact-form .dropdown-custom-item", function () {
+    const $item = $(this);
+    const $dropdown = $item.closest(".dropdown-custom-select");
+    const optionText = $.trim($item.text());
+
+    $dropdown.find("input[type='hidden']").val(optionText);
+    $dropdown.find(".dropdown-custom-text").text(optionText);
+    $dropdown.addClass("selected");
+  });
+
+  $(document).on("submit", ".contact-form", function (e) {
+    e.preventDefault();
+
+    const $form = $(this);
+    const $submitButton = $form.find("[type='submit']");
+    const $formMessage = $form.find(".form-message, .form-mesage");
+    let hasError = false;
+
+    $form.find(".label.error, .dropdown-custom-text.error").removeClass("error");
+    $formMessage.removeClass("active").hide();
+
+    $form.find(".required").each(function () {
+      const $field = $(this);
+      const value = $.trim($field.val());
+
+      if (value) return;
+
+      hasError = true;
+
+      const $formInput = $field.closest(".form-input");
+      const $label = $formInput.find(".label").first();
+      const $dropdownLabel = $formInput.find(".dropdown-custom-text").first();
+
+      if ($label.length) {
+        $label.addClass("error");
+      } else {
+        $dropdownLabel.addClass("error");
+      }
+    });
+
+    if (hasError) return;
+
+    $.ajax({
+      url: AjaxUrl,
+      type: "POST",
+      data: $form.serialize(),
+      beforeSend: function () {
+        $submitButton.addClass("aloading");
+      },
+      success: function () {
+        $submitButton.removeClass("aloading");
+        $formMessage.addClass("active").show();
+      },
+      error: function () {
+        $submitButton.removeClass("aloading");
+      }
+    });
   });
 }
