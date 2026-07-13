@@ -71,6 +71,39 @@
     background-color: var(--color-black);
     color: var(--color-white);
   }
+
+  &.aloading {
+    pointer-events: none;
+    position: relative;
+    color: transparent !important;
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 3;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 2px solid transparent;
+      border-radius: 50%;
+      border-top: 2px solid var(--color-white);
+      border-right: 2px solid var(--color-white);
+      width: 20px;
+      height: 20px;
+      animation: spin-animation 1s linear infinite;
+      z-index: 2;
+      background: 0 0;
+    }
+
+    @keyframes spin-animation {
+      0% {
+        transform: translate(-50%, -50%) rotate(0);
+      }
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+  }
 }
 // swiper
 .swiper-el-parallax {

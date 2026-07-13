@@ -2,6 +2,8 @@
 import {
   customDropdown,
   createFilterTab,
+  formContact,
+  footerOverlayHeight,
   headerScroll,
 } from "../../main/js/global.min.js";
 
@@ -276,7 +278,9 @@ function marqueeSection() {
 function init() {
   gsap.registerPlugin(ScrollTrigger);
   customDropdown();
+  formContact();
   createFilterTab();
+  footerOverlayHeight();
   headerScroll();
   marqueeSection();
 }

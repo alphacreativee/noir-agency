@@ -951,6 +951,36 @@ body {
   background-color: var(--color-black);
   color: var(--color-white);
 }
+.global-button.aloading {
+  pointer-events: none;
+  position: relative;
+  color: transparent !important;
+}
+.global-button.aloading::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid transparent;
+  border-radius: 50%;
+  border-top: 2px solid var(--color-white);
+  border-right: 2px solid var(--color-white);
+  width: 20px;
+  height: 20px;
+  animation: spin-animation 1s linear infinite;
+  z-index: 2;
+  background: 0 0;
+}
+@keyframes spin-animation {
+  0% {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
 
 .swiper-el-parallax .swiper-pagination-bullet {
   background-color: rgba(255, 255, 255, 0.2);
@@ -1647,6 +1677,20 @@ body {
 
 #footer {
   background-color: var(--color-black-op);
+  position: relative;
+  z-index: 0;
+}
+#footer .footer-ovl {
+  height: var(--footer-height, 0px);
+  pointer-events: none;
+}
+#footer .footer-container {
+  position: fixed;
+  left: 50%;
+  right: auto;
+  bottom: 0;
+  z-index: 0;
+  transform: translateX(-50%);
 }
 #footer .footer-form .form-row {
   margin-bottom: 24px;
@@ -1684,10 +1728,56 @@ body {
   height: 100%;
   padding: 0 24px;
 }
+#footer .footer-form .form-input input:focus + label, #footer .footer-form .form-input input:not(:placeholder-shown) + label,
+#footer .footer-form .form-input textarea:focus + label,
+#footer .footer-form .form-input textarea:not(:placeholder-shown) + label {
+  opacity: 0;
+}
+#footer .footer-form .form-input input:-webkit-autofill, #footer .footer-form .form-input input:-webkit-autofill:hover, #footer .footer-form .form-input input:-webkit-autofill:focus, #footer .footer-form .form-input input:-webkit-autofill:active,
+#footer .footer-form .form-input textarea:-webkit-autofill,
+#footer .footer-form .form-input textarea:-webkit-autofill:hover,
+#footer .footer-form .form-input textarea:-webkit-autofill:focus,
+#footer .footer-form .form-input textarea:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--color-white) inset;
+  -webkit-text-fill-color: var(--color-black);
+  caret-color: var(--color-black);
+  transition: background-color 9999s ease-in-out 0s;
+}
 #footer .footer-form .form-input label {
   position: absolute;
   left: 24px;
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+#footer .footer-form .form-input label.error {
+  color: #ff3b30;
+}
+#footer .footer-form .form-input label span {
+  color: #ff3b30;
+}
+#footer .footer-form .dropdown-custom-text span span {
+  color: #ff3b30;
+}
+#footer .footer-form .dropdown-custom-text.error {
+  color: #ff3b30;
+}
+#footer .footer-form .form-message,
+#footer .footer-form .form-mesage {
+  display: none;
+  margin-top: 24px;
+  color: var(--color-white);
+  text-align: center;
+}
+#footer .footer-form .form-message.active,
+#footer .footer-form .form-mesage.active {
+  display: block;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-black);
 }
