@@ -211,11 +211,6 @@ export function footerOverlayHeight() {
 }
 
 export function formContact() {
-  const $ = window.jQuery;
-  if (!$ || $("html").data("formContactInitialized")) return;
-
-  $("html").data("formContactInitialized", true);
-
   $(document).on("click", ".contact-form .dropdown-custom-item", function () {
     const $item = $(this);
     const $dropdown = $item.closest(".dropdown-custom-select");
@@ -234,7 +229,9 @@ export function formContact() {
     const $formMessage = $form.find(".form-message, .form-mesage");
     let hasError = false;
 
-    $form.find(".label.error, .dropdown-custom-text.error").removeClass("error");
+    $form
+      .find(".label.error, .dropdown-custom-text.error")
+      .removeClass("error");
     $formMessage.removeClass("active").hide();
 
     $form.find(".required").each(function () {
