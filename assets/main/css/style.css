@@ -1226,6 +1226,15 @@ body {
 .section-about .about-column .col-left .image {
   width: 100%;
   height: 100%;
+  position: relative;
+}
+.section-about .about-column .col-left .image video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .section-about .about-column .col-left .image img {
   width: 100%;

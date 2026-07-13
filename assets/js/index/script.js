@@ -2,7 +2,7 @@
 import {
   customDropdown,
   createFilterTab,
-  headerScroll
+  headerScroll,
 } from "../../main/js/global.min.js";
 
 const $ = jQuery;
@@ -19,10 +19,10 @@ function initParallaxSwiper(swiperEl, options = {}) {
     slidesPerView: 1,
     loop: true,
     speed: 1500,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false
-    },
+    // autoplay: {
+    //   delay: 3000,
+    //   disableOnInteraction: false
+    // },
     watchSlidesProgress: true,
     grabCursor: true,
     ...options,
@@ -54,8 +54,8 @@ function initParallaxSwiper(swiperEl, options = {}) {
           if (image) image.style.transition = `${speed}ms ${easing}`;
         });
       },
-      ...(options.on || {})
-    }
+      ...(options.on || {}),
+    },
   });
 }
 
@@ -69,18 +69,18 @@ function initSwiper() {
   initParallaxSwiper(swiperEl, {
     navigation: {
       nextEl: containerSwiperEl.querySelector(".swiper-button-next"),
-      prevEl: containerSwiperEl.querySelector(".swiper-button-prev")
+      prevEl: containerSwiperEl.querySelector(".swiper-button-prev"),
     },
     pagination: {
       el: containerSwiperEl.querySelector(".swiper-pagination"),
-      clickable: true
-    }
+      clickable: true,
+    },
   });
 }
 
 function brandingDetail() {
   const brandingDetailSliderEl = document.querySelector(
-    ".branding-detail__slider"
+    ".branding-detail__slider",
   );
   if (!brandingDetailSliderEl) return;
 
@@ -93,9 +93,9 @@ function brandingDetail() {
     grabCursor: true,
     breakpoints: {
       992: {
-        spaceBetween: 40
-      }
-    }
+        spaceBetween: 40,
+      },
+    },
   });
 }
 
@@ -115,8 +115,8 @@ function sectionProcess() {
       scrollTrigger: {
         trigger: el,
         start: "top 80%",
-        once: true
-      }
+        once: true,
+      },
     });
   });
 
@@ -141,7 +141,7 @@ function sectionProcess() {
       onLeave() {
         isLineComplete = true;
         gsap.set(lineEl, { scaleY: 1 });
-      }
+      },
     });
   }
 }
@@ -156,10 +156,10 @@ function marqueeSection() {
       .forEach((marquee) => {
         // Query marquee elements
         const marqueeContent = marquee.querySelector(
-          "[data-marquee-collection-target]"
+          "[data-marquee-collection-target]",
         );
         const marqueeScroll = marquee.querySelector(
-          "[data-marquee-scroll-target]"
+          "[data-marquee-scroll-target]",
         );
         if (!marqueeContent || !marqueeScroll) return;
 
@@ -168,7 +168,7 @@ function marqueeSection() {
           marqueeSpeed: speed,
           marqueeDirection: direction,
           marqueeDuplicate: duplicate,
-          marqueeScrollSpeed: scrollSpeed
+          marqueeScrollSpeed: scrollSpeed,
         } = marquee.dataset;
 
         // Convert data attributes to usable types
@@ -200,7 +200,7 @@ function marqueeSection() {
 
         // GSAP animation for marquee content
         const marqueeItems = marquee.querySelectorAll(
-          "[data-marquee-collection-target]"
+          "[data-marquee-collection-target]",
         );
         const animation = gsap
           .to(marqueeItems, {
@@ -208,13 +208,13 @@ function marqueeSection() {
             // Move completely out of view
             repeat: -1,
             duration: marqueeSpeed,
-            ease: "linear"
+            ease: "linear",
           })
           .totalProgress(0.5);
 
         // Initialize marquee in the correct direction
         gsap.set(marqueeItems, {
-          xPercent: marqueeDirectionAttr === 1 ? 100 : -100
+          xPercent: marqueeDirectionAttr === 1 ? 100 : -100,
         });
         animation.timeScale(marqueeDirectionAttr);
         // Set correct direction
@@ -240,9 +240,9 @@ function marqueeSection() {
             animation.timeScale(currentDirection);
             marquee.setAttribute(
               "data-marquee-status",
-              isInverted ? "normal" : "inverted"
+              isInverted ? "normal" : "inverted",
             );
-          }
+          },
         });
 
         // Extra speed effect on scroll
@@ -251,8 +251,8 @@ function marqueeSection() {
             trigger: marquee,
             start: "0% 100%",
             end: "100% 0%",
-            scrub: 0
-          }
+            scrub: 0,
+          },
         });
 
         const scrollStart =
@@ -262,12 +262,12 @@ function marqueeSection() {
         tl.fromTo(
           marqueeScroll,
           {
-            x: `${scrollStart}vw`
+            x: `${scrollStart}vw`,
           },
           {
             x: `${scrollEnd}vw`,
-            ease: "none"
-          }
+            ease: "none",
+          },
         );
       });
   });
@@ -312,6 +312,6 @@ document.querySelectorAll(".distortion-img").forEach((wrapper) => {
     angle: Math.PI / 4,
     image1: wrapper.getAttribute("data-image-default"),
     image2: wrapper.getAttribute("data-image-hover"),
-    displacementImage: wrapper.getAttribute("data-displacement")
+    displacementImage: wrapper.getAttribute("data-displacement"),
   });
 });
