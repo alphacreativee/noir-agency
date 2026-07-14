@@ -16,10 +16,10 @@
     width: max-content;
     // pointer-events: none;
     @media (max-width: 991px) {
-      max-width: calc(100% - 80px);
+      max-width: calc(100% - 64px);
       width: 100%;
-      left: 40px;
-      right: 40px;
+      left: 32px;
+      right: 32px;
       transform: translate(0%, -30%);
     }
   }

@@ -474,9 +474,9 @@ function swiperService() {
   if (window.innerWidth > 992) return;
   if (!document.querySelector(".swiper-service")) return;
   const swiper = new Swiper(".swiper-service", {
-    slidesPerView: 1.1,
-    spaceBetween: 30,
-    slidesOffsetAfter: 40,
+    slidesPerView: 1.15,
+    spaceBetween: 32,
+    slidesOffsetAfter: 42,
   });
 }
 function init() {

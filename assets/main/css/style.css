@@ -1061,8 +1061,8 @@ body {
 
 @media (max-width: 991px) {
   .px-80 {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
   .spacing-lg-120 {
     height: 80px;
@@ -1429,10 +1429,10 @@ body {
 }
 @media (max-width: 991px) {
   .hero-content {
-    max-width: calc(100% - 80px);
+    max-width: calc(100% - 64px);
     width: 100%;
-    left: 40px;
-    right: 40px;
+    left: 32px;
+    right: 32px;
     transform: translate(0%, -30%);
   }
 }
@@ -1900,7 +1900,7 @@ body {
     padding-right: 0;
   }
   .section-service .service-grid .swiper-service {
-    padding-left: 40px;
+    padding-left: 32px;
   }
 }
 
