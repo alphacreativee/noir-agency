@@ -175,6 +175,7 @@ export function getDateLightPick() {
 }
 
 export function footerOverlayHeight() {
+  if (window.innerWidth < 992) return;
   const footer = document.getElementById("footer");
   if (!footer) return;
 

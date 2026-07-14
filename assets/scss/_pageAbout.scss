@@ -1,6 +1,8 @@
 .about-detail {
-  padding: 140px 0;
-
+  padding: 120px 0;
+  @media (max-width: 991px) {
+    padding: 80px 0;
+  }
   .title {
     margin-bottom: 24px;
     font-size: 28px;
@@ -10,7 +12,7 @@
 
   &__container {
     @media (max-width: 991px) {
-      padding: 0 24px;
+      padding: 0 32px;
     }
   }
 

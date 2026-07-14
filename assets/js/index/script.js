@@ -529,6 +529,15 @@ function headerMobile() {
     });
   });
 }
+function swiperService() {
+  if (window.innerWidth > 992) return;
+  if (!document.querySelector(".swiper-service")) return;
+  const swiper = new Swiper(".swiper-service", {
+    slidesPerView: 1.15,
+    spaceBetween: 32,
+    slidesOffsetAfter: 32
+  });
+}
 function init() {
   gsap.registerPlugin(ScrollTrigger);
   customDropdown();
@@ -540,6 +549,7 @@ function init() {
   animationText();
   headerMobile();
   sectionGridColumnAnimation();
+  swiperService();
 }
 
 document.addEventListener("DOMContentLoaded", () => {

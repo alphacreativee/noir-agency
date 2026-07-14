@@ -29,4 +29,32 @@
       gap: 16px 0;
     }
   }
+  @media (max-width: 991px) {
+    .service {
+      &-box {
+        .image {
+          aspect-ratio: 648 / 400;
+          width: 100%;
+          margin-bottom: 24px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        .title {
+          margin-bottom: 16px;
+        }
+      }
+      &-inner {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      &-grid {
+        .swiper-service {
+          padding-left: 32px;
+        }
+      }
+    }
+  }
 }
