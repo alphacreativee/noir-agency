@@ -1537,6 +1537,12 @@ body {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 40px;
 }
+@media (max-width: 991px) {
+  .section-grid__column-grid {
+    grid-template-columns: 1fr;
+    gap: 24px !important;
+  }
+}
 .section-grid__column-card {
   display: block;
   position: relative;
@@ -1620,7 +1626,7 @@ body {
     max-width: 100%;
   }
   .section-grid__column-title {
-    margin-bottom: 28px;
+    margin-bottom: 32px;
   }
   .section-grid__column-grid {
     gap: 16px;
@@ -1698,13 +1704,19 @@ body {
   }
   .branding-detail__inner {
     max-width: 100%;
+    padding: 0 32px;
   }
   .branding-detail__slider .swiper-slide {
     width: 86%;
   }
 }
 .about-detail {
-  padding: 140px 0;
+  padding: 120px 0;
+}
+@media (max-width: 991px) {
+  .about-detail {
+    padding: 80px 0;
+  }
 }
 .about-detail .title {
   margin-bottom: 24px;
@@ -1714,7 +1726,7 @@ body {
 }
 @media (max-width: 991px) {
   .about-detail__container {
-    padding: 0 24px;
+    padding: 0 32px;
   }
 }
 .about-detail .the-content > * + * {
@@ -1812,6 +1824,17 @@ body {
   font-weight: 300;
   padding-left: 120px;
 }
+@media (max-width: 991px) {
+  .section-process__item-title {
+    padding-left: 0;
+    max-width: 100%;
+  }
+}
+@media (max-width: 390px) {
+  .section-process__item-title {
+    padding-left: 20px;
+  }
+}
 .section-process__closing {
   margin-top: 80px;
   text-align: center;
@@ -1819,22 +1842,22 @@ body {
 
 @media (max-width: 991px) {
   .section-process {
-    padding: 72px 0 96px;
+    padding: 80px 0;
   }
   .section-process__inner {
     max-width: 100%;
   }
   .section-process__title {
-    margin-bottom: 48px;
+    margin-bottom: 32px;
   }
   .section-process__line {
     top: 76px;
     bottom: 76px;
-    left: 96px;
+    left: 90px;
   }
   .section-process__item {
-    grid-template-columns: 72px 48px minmax(0, 1fr);
-    min-height: 220px;
+    grid-template-columns: 1fr 2fr;
+    min-height: 200px;
   }
   .section-process__number {
     font-size: 64px;
@@ -1843,6 +1866,7 @@ body {
   .section-process__dot {
     width: 16px;
     height: 16px;
+    left: 90px;
   }
   .section-process__item-title {
     font-size: 28px;
