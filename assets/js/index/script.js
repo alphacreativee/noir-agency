@@ -322,20 +322,37 @@ function formContact() {
 
     $dropdown.find("input[type='hidden']").val(optionText);
     $dropdown.find(".dropdown-custom-text").text(optionText);
+    $dropdown.find(".dropdown-custom-text").removeClass("error");
     $dropdown.addClass("selected");
+  });
+
+  $(document).on("input change", ".contact-form .required", function () {
+    const $field = $(this);
+
+    if (!$.trim($field.val())) return;
+
+    const $formInput = $field.closest(".form-input");
+
+    $formInput.find(".label").removeClass("error");
+    $formInput.find(".dropdown-custom-text").removeClass("error");
   });
 
   $(document).on("submit", ".contact-form", function (e) {
     e.preventDefault();
 
     const $form = $(this);
-    const $submitButton = $form.find("[type='submit']");
-    const $formMessage = $form.find(".form-message, .form-mesage");
+    const $submitButton = $form.find('[type="submit"]');
+    const $formMessage = $form.find(".form-message");
+    const emailRecipient = $submitButton.attr("email-recipient") || "";
+
     let hasError = false;
+
+    if ($submitButton.hasClass("aloading")) return;
 
     $form
       .find(".label.error, .dropdown-custom-text.error")
       .removeClass("error");
+
     $formMessage.removeClass("active").hide();
 
     $form.find(".required").each(function () {
@@ -357,21 +374,63 @@ function formContact() {
       }
     });
 
+    const $emailField = $form.find('input[name="email"]');
+    const emailValue = $.trim($emailField.val());
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (emailValue && !emailRegex.test(emailValue)) {
+      hasError = true;
+
+      $emailField.closest(".form-input").find(".label").addClass("error");
+    }
+
     if (hasError) return;
 
+    const formData = $form.serializeArray();
+
+    formData.push(
+      {
+        name: "action",
+        value: "submit_contact"
+      },
+      {
+        name: "email_recipient",
+        value: emailRecipient
+      }
+    );
+
     $.ajax({
-      url: AjaxUrl,
+      url: ajaxUrl,
       type: "POST",
-      data: $form.serialize(),
+      dataType: "json",
+      data: $.param(formData),
+
       beforeSend: function () {
-        $submitButton.addClass("aloading");
+        $submitButton.addClass("aloading").prop("disabled", true);
       },
-      success: function () {
-        $submitButton.removeClass("aloading");
+
+      success: function (response) {
+        if (!response.success) return;
+
+        $form[0].reset();
+
+        $form.find('input[name="service"]').val("");
+
+        $form.find(".dropdown-custom-select").removeClass("selected");
+
+        $form
+          .find(".dropdown-custom-text")
+          .html("<span>Service<span>*</span></span>");
+
         $formMessage.addClass("active").show();
+
+        setTimeout(function () {
+          $formMessage.removeClass("active").fadeOut();
+        }, 8000);
       },
-      error: function () {
-        $submitButton.removeClass("aloading");
+
+      complete: function () {
+        $submitButton.removeClass("aloading").prop("disabled", false);
       }
     });
   });

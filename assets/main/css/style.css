@@ -1945,7 +1945,7 @@ body {
   display: none;
   margin-top: 24px;
   color: var(--color-white);
-  text-align: center;
+  text-align: left;
 }
 #footer .footer-form .form-message.active,
 #footer .footer-form .form-mesage.active {
