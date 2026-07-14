@@ -1895,6 +1895,13 @@ body {
   .section-service .service-box .title {
     margin-bottom: 16px;
   }
+  .section-service .service-inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .section-service .service-grid .swiper-service {
+    padding-left: 40px;
+  }
 }
 
 .featured-list .marquee-wrap {

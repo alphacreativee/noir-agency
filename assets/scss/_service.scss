@@ -46,6 +46,15 @@
           margin-bottom: 16px;
         }
       }
+      &-inner {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      &-grid {
+        .swiper-service {
+          padding-left: 40px;
+        }
+      }
     }
   }
 }
