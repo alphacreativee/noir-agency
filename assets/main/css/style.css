@@ -90,7 +90,7 @@
 @media (max-width: 991px) {
   .heading-1 {
     font-size: 56px;
-    line-height: 72px;
+    line-height: 64px;
   }
 }
 
@@ -1937,6 +1937,7 @@ body {
 @media (max-width: 991px) {
   .featured-list .marquee-item {
     margin: 0 16px;
+    max-width: 140px;
   }
 }
 .featured-list .marquee-item .logo-icon {

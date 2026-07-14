@@ -476,7 +476,7 @@ function swiperService() {
   const swiper = new Swiper(".swiper-service", {
     slidesPerView: 1.15,
     spaceBetween: 32,
-    slidesOffsetAfter: 42,
+    slidesOffsetAfter: 32,
   });
 }
 function init() {
