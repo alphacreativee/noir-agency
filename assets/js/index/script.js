@@ -3,7 +3,7 @@ import {
   customDropdown,
   createFilterTab,
   footerOverlayHeight,
-  headerScroll,
+  headerScroll
 } from "../../main/js/global.min.js";
 
 const $ = jQuery;
@@ -55,8 +55,8 @@ function initParallaxSwiper(swiperEl, options = {}) {
           if (image) image.style.transition = `${speed}ms ${easing}`;
         });
       },
-      ...(options.on || {}),
-    },
+      ...(options.on || {})
+    }
   });
 }
 
@@ -70,18 +70,18 @@ function initSwiper() {
   initParallaxSwiper(swiperEl, {
     navigation: {
       nextEl: containerSwiperEl.querySelector(".swiper-button-next"),
-      prevEl: containerSwiperEl.querySelector(".swiper-button-prev"),
+      prevEl: containerSwiperEl.querySelector(".swiper-button-prev")
     },
     pagination: {
       el: containerSwiperEl.querySelector(".swiper-pagination"),
-      clickable: true,
-    },
+      clickable: true
+    }
   });
 }
 
 function brandingDetail() {
   const brandingDetailSliderEl = document.querySelector(
-    ".branding-detail__slider",
+    ".branding-detail__slider"
   );
   if (!brandingDetailSliderEl) return;
 
@@ -94,9 +94,9 @@ function brandingDetail() {
     grabCursor: true,
     breakpoints: {
       992: {
-        spaceBetween: 40,
-      },
-    },
+        spaceBetween: 40
+      }
+    }
   });
 }
 
@@ -116,8 +116,8 @@ function sectionProcess() {
       scrollTrigger: {
         trigger: el,
         start: "top 80%",
-        once: true,
-      },
+        once: true
+      }
     });
   });
 
@@ -142,9 +142,49 @@ function sectionProcess() {
       onLeave() {
         isLineComplete = true;
         gsap.set(lineEl, { scaleY: 1 });
-      },
+      }
     });
   }
+}
+
+function sectionGridColumnAnimation() {
+  document.querySelectorAll(".section-grid__column").forEach((section) => {
+    const cards = gsap.utils.toArray(
+      section.querySelectorAll(".section-grid__column-card")
+    );
+    if (!cards.length) return;
+
+    gsap.set(cards, { autoAlpha: 0, y: 48 });
+
+    const cardRows = cards.reduce((rows, card) => {
+      const rowTop = Math.round(card.offsetTop);
+      const row = rows.find((items) => {
+        return Math.abs(Math.round(items[0].offsetTop) - rowTop) <= 4;
+      });
+
+      if (row) {
+        row.push(card);
+      } else {
+        rows.push([card]);
+      }
+
+      return rows;
+    }, []);
+
+    cardRows.forEach((cardRow) => {
+      gsap.to(cardRow, {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: cardRow[0],
+          start: "top 75%",
+          once: true
+        }
+      });
+    });
+  });
 }
 
 function marqueeSection() {
@@ -157,10 +197,10 @@ function marqueeSection() {
       .forEach((marquee) => {
         // Query marquee elements
         const marqueeContent = marquee.querySelector(
-          "[data-marquee-collection-target]",
+          "[data-marquee-collection-target]"
         );
         const marqueeScroll = marquee.querySelector(
-          "[data-marquee-scroll-target]",
+          "[data-marquee-scroll-target]"
         );
         if (!marqueeContent || !marqueeScroll) return;
 
@@ -169,7 +209,7 @@ function marqueeSection() {
           marqueeSpeed: speed,
           marqueeDirection: direction,
           marqueeDuplicate: duplicate,
-          marqueeScrollSpeed: scrollSpeed,
+          marqueeScrollSpeed: scrollSpeed
         } = marquee.dataset;
 
         // Convert data attributes to usable types
@@ -201,7 +241,7 @@ function marqueeSection() {
 
         // GSAP animation for marquee content
         const marqueeItems = marquee.querySelectorAll(
-          "[data-marquee-collection-target]",
+          "[data-marquee-collection-target]"
         );
         const animation = gsap
           .to(marqueeItems, {
@@ -209,13 +249,13 @@ function marqueeSection() {
             // Move completely out of view
             repeat: -1,
             duration: marqueeSpeed,
-            ease: "linear",
+            ease: "linear"
           })
           .totalProgress(0.5);
 
         // Initialize marquee in the correct direction
         gsap.set(marqueeItems, {
-          xPercent: marqueeDirectionAttr === 1 ? 100 : -100,
+          xPercent: marqueeDirectionAttr === 1 ? 100 : -100
         });
         animation.timeScale(marqueeDirectionAttr);
         // Set correct direction
@@ -241,9 +281,9 @@ function marqueeSection() {
             animation.timeScale(currentDirection);
             marquee.setAttribute(
               "data-marquee-status",
-              isInverted ? "normal" : "inverted",
+              isInverted ? "normal" : "inverted"
             );
-          },
+          }
         });
 
         // Extra speed effect on scroll
@@ -252,8 +292,8 @@ function marqueeSection() {
             trigger: marquee,
             start: "0% 100%",
             end: "100% 0%",
-            scrub: 0,
-          },
+            scrub: 0
+          }
         });
 
         const scrollStart =
@@ -263,12 +303,12 @@ function marqueeSection() {
         tl.fromTo(
           marqueeScroll,
           {
-            x: `${scrollStart}vw`,
+            x: `${scrollStart}vw`
           },
           {
             x: `${scrollEnd}vw`,
-            ease: "none",
-          },
+            ease: "none"
+          }
         );
       });
   });
@@ -332,7 +372,7 @@ function formContact() {
       },
       error: function () {
         $submitButton.removeClass("aloading");
-      },
+      }
     });
   });
 }
@@ -350,15 +390,15 @@ function animationText() {
       scrollTrigger: {
         trigger: el,
         start: "top 65%",
-        once: true,
-      },
+        once: true
+      }
     });
     const animFrom = { y: 20, opacity: 0 };
     const animTo = {
       y: 0,
       opacity: 1,
       duration: 0.6,
-      ease: "power2.out",
+      ease: "power2.out"
     };
 
     if (tlTextOne.length) tl.fromTo(tlTextOne, animFrom, animTo);
@@ -397,7 +437,7 @@ function headerMobile() {
 
       const subMenu = this.parentElement.querySelector(".sub-menu");
       const allSubMenus = Array.from(
-        document.querySelectorAll("#header .sub-menu"),
+        document.querySelectorAll("#header .sub-menu")
       ).filter((el) => el !== subMenu);
 
       allSubMenus.forEach((el) => {
@@ -424,7 +464,7 @@ function headerMobile() {
             }
             subMenu.removeEventListener("transitionend", handler);
           },
-          { once: true },
+          { once: true }
         );
       }
     });
@@ -440,6 +480,7 @@ function init() {
   marqueeSection();
   animationText();
   headerMobile();
+  sectionGridColumnAnimation();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -473,6 +514,6 @@ document.querySelectorAll(".distortion-img").forEach((wrapper) => {
     angle: Math.PI / 4,
     image1: wrapper.getAttribute("data-image-default"),
     image2: wrapper.getAttribute("data-image-hover"),
-    displacementImage: wrapper.getAttribute("data-displacement"),
+    displacementImage: wrapper.getAttribute("data-displacement")
   });
 });
