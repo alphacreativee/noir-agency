@@ -5,7 +5,10 @@
         width: 100%;
         position: relative;
         overflow: hidden;
-        margin-bottom: 45px;
+        margin-bottom: 48px;
+        @media (max-width: 991px) {
+          margin-bottom: 32px;
+        }
         &:last-child {
           margin-bottom: 0;
         }
@@ -25,6 +28,9 @@
         margin: 0 15px;
         flex: none;
         max-width: 170px;
+        @media (max-width: 991px) {
+          margin: 0 16px;
+        }
         .logo-icon {
           width: 100%;
           aspect-ratio: 1;
@@ -43,5 +49,16 @@
   }
   &-top {
     margin-bottom: 120px;
+    @media (max-width: 991px) {
+      margin-bottom: 80px;
+      padding-right: 40px;
+      padding-left: 40px;
+    }
+  }
+  &-inner {
+    @media (max-width: 991px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 }

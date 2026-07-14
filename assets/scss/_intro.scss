@@ -4,12 +4,23 @@
     grid-template-columns: 4fr 6fr;
     gap: 24px;
     margin-bottom: 120px;
+    @media (max-width: 991px) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 80px;
+    }
   }
   &-right {
     margin-top: 96px;
+    @media (max-width: 991px) {
+      margin-top: 0;
+    }
   }
   &-image {
     width: 100%;
     aspect-ratio: 1062 / 540;
+    @media (max-width: 991px) {
+      aspect-ratio: 648 / 400;
+    }
   }
 }

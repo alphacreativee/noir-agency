@@ -169,3 +169,18 @@
     cursor: pointer;
   }
 }
+@media (max-width: 991px) {
+  .px-80 {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .spacing-lg-120 {
+    height: 80px;
+  }
+  .mb-64 {
+    margin-bottom: 48px;
+  }
+  .gap-64 {
+    gap: 48px;
+  }
+}

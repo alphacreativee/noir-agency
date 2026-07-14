@@ -1,6 +1,6 @@
 export function customDropdown() {
   const dropdowns = document.querySelectorAll(
-    ".dropdown-custom, .dropdown-custom-select"
+    ".dropdown-custom, .dropdown-custom-select",
   );
   if (!dropdowns.length) return;
   dropdowns.forEach((dropdown) => {
@@ -94,7 +94,7 @@ export function headerScroll() {
         // scrolling down
         header.classList.add("scrolled");
       }
-    }
+    },
   });
 
   return trigger;
@@ -169,12 +169,13 @@ export function getDateLightPick() {
     field: document.getElementById("datepicker"),
     minDate: new Date(),
     singleDate: false,
-    numberOfMonths: 2
+    numberOfMonths: 2,
     // lang: "en-US",
   });
 }
 
 export function footerOverlayHeight() {
+  if (window.innerWidth < 992) return;
   const footer = document.getElementById("footer");
   if (!footer) return;
 
@@ -268,7 +269,7 @@ export function formContact() {
       },
       error: function () {
         $submitButton.removeClass("aloading");
-      }
+      },
     });
   });
 }

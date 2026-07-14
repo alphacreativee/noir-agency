@@ -87,17 +87,34 @@
   line-height: 96px;
   font-weight: 300;
 }
+@media (max-width: 991px) {
+  .heading-1 {
+    font-size: 56px;
+    line-height: 72px;
+  }
+}
 
 .heading-2 {
   font-size: 40px;
   line-height: 56px;
   font-weight: 300;
 }
+@media (max-width: 991px) {
+  .heading-2 {
+    font-size: 32px;
+    line-height: 48px;
+  }
+}
 
 .heading-3 {
   font-size: 28px;
   line-height: 32px;
   font-weight: 300;
+}
+@media (max-width: 991px) {
+  .heading-3 {
+    font-size: 24px;
+  }
 }
 
 .b1-font {
@@ -1042,6 +1059,21 @@ body {
   cursor: pointer;
 }
 
+@media (max-width: 991px) {
+  .px-80 {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .spacing-lg-120 {
+    height: 80px;
+  }
+  .mb-64 {
+    margin-bottom: 48px;
+  }
+  .gap-64 {
+    gap: 48px;
+  }
+}
 .lightpick {
   --color-stroke: #ccc;
   --color-bg: #fff;
@@ -1393,6 +1425,16 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  width: max-content;
+}
+@media (max-width: 991px) {
+  .hero-content {
+    max-width: calc(100% - 80px);
+    width: 100%;
+    left: 40px;
+    right: 40px;
+    transform: translate(0%, -30%);
+  }
 }
 .hero-inner {
   width: 100%;
@@ -1408,12 +1450,29 @@ body {
   gap: 24px;
   margin-bottom: 120px;
 }
+@media (max-width: 991px) {
+  .intro-content {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 80px;
+  }
+}
 .intro-right {
   margin-top: 96px;
+}
+@media (max-width: 991px) {
+  .intro-right {
+    margin-top: 0;
+  }
 }
 .intro-image {
   width: 100%;
   aspect-ratio: 1062/540;
+}
+@media (max-width: 991px) {
+  .intro-image {
+    aspect-ratio: 648/400;
+  }
 }
 
 .section-about .about-column {
@@ -1422,9 +1481,21 @@ body {
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
+@media (max-width: 991px) {
+  .section-about .about-column {
+    grid-template-columns: 1fr;
+  }
+}
 .section-about .about-column .col-left {
   min-width: 0px;
   aspect-ratio: 510/410;
+}
+@media (max-width: 991px) {
+  .section-about .about-column .col-left {
+    aspect-ratio: 648/400;
+  }
+}
+.section-about .about-column .col-left {
   background-color: var(--color-black);
 }
 .section-about .about-column .col-left .image {
@@ -1447,6 +1518,11 @@ body {
 }
 .section-about .about-box {
   padding-left: 8.3333333333%;
+}
+@media (max-width: 991px) {
+  .section-about .about-box {
+    padding-left: 0;
+  }
 }
 
 .section-grid__column {
@@ -1805,12 +1881,32 @@ body {
     gap: 16px 0;
   }
 }
+@media (max-width: 991px) {
+  .section-service .service-box .image {
+    aspect-ratio: 648/400;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  .section-service .service-box .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .section-service .service-box .title {
+    margin-bottom: 16px;
+  }
+}
 
 .featured-list .marquee-wrap {
   width: 100%;
   position: relative;
   overflow: hidden;
-  margin-bottom: 45px;
+  margin-bottom: 48px;
+}
+@media (max-width: 991px) {
+  .featured-list .marquee-wrap {
+    margin-bottom: 32px;
+  }
 }
 .featured-list .marquee-wrap:last-child {
   margin-bottom: 0;
@@ -1831,6 +1927,11 @@ body {
   flex: none;
   max-width: 170px;
 }
+@media (max-width: 991px) {
+  .featured-list .marquee-item {
+    margin: 0 16px;
+  }
+}
 .featured-list .marquee-item .logo-icon {
   width: 100%;
   aspect-ratio: 1;
@@ -1845,6 +1946,19 @@ body {
 }
 .featured-top {
   margin-bottom: 120px;
+}
+@media (max-width: 991px) {
+  .featured-top {
+    margin-bottom: 80px;
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+@media (max-width: 991px) {
+  .featured-inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .why-noir-description {
@@ -1868,6 +1982,14 @@ body {
   z-index: 0;
   transform: translateX(-50%);
 }
+@media (max-width: 991px) {
+  #footer .footer-container {
+    left: 0px;
+    transform: translateX(0%);
+    right: 0px;
+    position: static;
+  }
+}
 #footer .footer-form .form-row {
   margin-bottom: 24px;
 }
@@ -1888,6 +2010,12 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0 24px;
+}
+@media (max-width: 991px) {
+  #footer .footer-form .form-row.two-col {
+    grid-template-columns: 1fr;
+    gap: 24px 0;
+  }
 }
 #footer .footer-form .form-row input {
   border: none;

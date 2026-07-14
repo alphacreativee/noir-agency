@@ -13,7 +13,15 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    width: max-content;
     // pointer-events: none;
+    @media (max-width: 991px) {
+      max-width: calc(100% - 80px);
+      width: 100%;
+      left: 40px;
+      right: 40px;
+      transform: translate(0%, -30%);
+    }
   }
   &-inner {
     width: 100%;

@@ -5,9 +5,15 @@
       align-items: center;
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
+      @media (max-width: 991px) {
+        grid-template-columns: 1fr;
+      }
       .col-left {
         min-width: 0px;
         aspect-ratio: 510 / 410;
+        @media (max-width: 991px) {
+          aspect-ratio: 648 / 400;
+        }
         background-color: var(--color-black);
         .image {
           width: 100%;
@@ -31,6 +37,9 @@
     }
     &-box {
       padding-left: calc(1 / 12 * 100%);
+      @media (max-width: 991px) {
+        padding-left: 0;
+      }
     }
   }
 }
