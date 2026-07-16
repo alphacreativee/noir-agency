@@ -1680,11 +1680,11 @@ body {
   width: 100%;
 }
 .branding-detail__slider .swiper-slide {
-  width: 73.75%;
+  width: 351px;
 }
 .branding-detail__slide-image {
   width: 100%;
-  aspect-ratio: 1062/540;
+  aspect-ratio: 351/540;
   background-color: var(--color-black-op);
 }
 .branding-detail__slide-image img {
@@ -1707,8 +1707,15 @@ body {
     max-width: 100%;
     padding: 0 32px;
   }
+}
+@media (max-width: 767px) {
   .branding-detail__slider .swiper-slide {
-    width: 86%;
+    width: calc((100vw - 32px - 48px) / 2.5);
+  }
+}
+@media (max-width: 480px) {
+  .branding-detail__slider .swiper-slide {
+    width: calc((100vw - 32px - 24px) / 1.5);
   }
 }
 .about-detail {
