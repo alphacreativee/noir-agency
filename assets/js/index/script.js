@@ -96,9 +96,9 @@ function brandingDetail() {
       992: {
         spaceBetween: 40,
         slidesOffsetBefore: 40,
-        slidesOffsetAfter: 40,
-      },
-    },
+        slidesOffsetAfter: 40
+      }
+    }
   });
 }
 
@@ -576,12 +576,21 @@ window.addEventListener("beforeunload", () => {
   isLinkClicked = false;
 });
 document.querySelectorAll(".distortion-img").forEach((wrapper) => {
+  const image1 = wrapper.getAttribute("data-image-default");
+  const image2 = wrapper.getAttribute("data-image-hover");
+  const displacementImage = wrapper.getAttribute("data-displacement");
+
+  if (!image1 || !image2 || !displacementImage) {
+    console.warn("Missing distortion image data", wrapper);
+    return;
+  }
+
   new hoverEffect({
     parent: wrapper,
     intensity: parseFloat(wrapper.getAttribute("data-intensity")) || 0.03,
     angle: Math.PI / 4,
-    image1: wrapper.getAttribute("data-image-default"),
-    image2: wrapper.getAttribute("data-image-hover"),
-    displacementImage: wrapper.getAttribute("data-displacement")
+    image1,
+    image2,
+    displacementImage
   });
 });

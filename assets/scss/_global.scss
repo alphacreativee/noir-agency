@@ -10,6 +10,7 @@
     height: 100%;
     z-index: 2;
     object-fit: cover;
+    pointer-events: none;
   }
 }
 .distortion-img img {
@@ -121,6 +122,15 @@
 .spacing-lg-120 {
   height: 120px;
 }
+
+.spacing-120 {
+  height: 120px;
+
+  @media (max-width: 991px) {
+    height: 70px;
+  }
+}
+
 // dropdown
 .dropdown-custom-select {
   position: relative;
@@ -183,4 +193,9 @@
   .gap-64 {
     gap: 48px;
   }
+}
+
+::selection {
+  color: var(--color-white);
+  background-color: var(--color-black);
 }

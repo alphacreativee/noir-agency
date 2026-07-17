@@ -206,6 +206,7 @@ var hoverEffect = function (opts) {
       evtOut = "touchend";
     }
     parent.addEventListener(evtIn, function (e) {
+      TweenMax.killTweensOf(mat.uniforms.dispFactor);
       TweenMax.to(mat.uniforms.dispFactor, speedIn, {
         value: 1,
         ease: easing,
@@ -213,6 +214,7 @@ var hoverEffect = function (opts) {
     });
 
     parent.addEventListener(evtOut, function (e) {
+      TweenMax.killTweensOf(mat.uniforms.dispFactor);
       TweenMax.to(mat.uniforms.dispFactor, speedOut, {
         value: 0,
         ease: easing,
@@ -254,6 +256,7 @@ var hoverEffect = function (opts) {
   });
 
   this.next = function () {
+    TweenMax.killTweensOf(mat.uniforms.dispFactor);
     TweenMax.to(mat.uniforms.dispFactor, speedIn, {
       value: 1,
       ease: easing,
@@ -261,6 +264,7 @@ var hoverEffect = function (opts) {
   };
 
   this.previous = function () {
+    TweenMax.killTweensOf(mat.uniforms.dispFactor);
     TweenMax.to(mat.uniforms.dispFactor, speedOut, {
       value: 0,
       ease: easing,
