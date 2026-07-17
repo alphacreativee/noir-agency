@@ -549,13 +549,13 @@ function init() {
   headerMobile();
   sectionGridColumnAnimation();
   swiperService();
+  brandingDetail();
+  sectionProcess();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   init();
   initSwiper();
-  brandingDetail();
-  sectionProcess();
 });
 
 let isLinkClicked = false;
